@@ -22,6 +22,15 @@ namespace PlacementPortal {
         protected global::System.Web.UI.HtmlControls.HtmlForm _form_login_attempt;
         
         /// <summary>
+        /// _btn_goback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _btn_goback;
+        
+        /// <summary>
         /// _lbl_username control.
         /// </summary>
         /// <remarks>
@@ -65,5 +74,23 @@ namespace PlacementPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button _btn_login;
+        
+        /// <summary>
+        /// _lbl_register_urge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label _lbl_register_urge;
+        
+        /// <summary>
+        /// _btn_register control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _btn_register;
     }
 }
