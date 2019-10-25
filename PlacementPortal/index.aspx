@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="PlacementPortal.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Theme="Theme1" Inherits="PlacementPortal.index" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,6 +7,15 @@
     <link href="ext/css/bootstrap.min.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css' />
     <style>
+        body {
+            background-color: #f6f6f6;
+        }
+
+        .font__adjust {
+            font-family: "Muli";
+            font-size: 1.3em;
+        }
+
         .heading__stroke {
             color: white;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -35,7 +44,7 @@
         <div id="_scream_inner">
             <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center heading__stroke" style="color: white">
                 <h1 class="display-1" style="font-family: 'Dancing Script', cursive;">Placement Portal</h1>
-                <p class="lead">Welcome to portal that turns boys into men.</p>
+                <p class="lead font__adjust">Welcome to portal that turns boys into men.</p>
             </div>
         </div>
     </div>
@@ -47,7 +56,7 @@
     <div class="container">
         <form runat="server">
             <div class="card-deck mb-3 text-center">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 cust__card">
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">Student</h1>
                         <hr />
@@ -57,10 +66,10 @@
                             <li>Manage Schedule</li>
                             <li>Register with Company</li>
                         </ul>
-                        <asp:Button ID="_btn_student" CssClass="btn btn-lg btn-block btn-outline-primary" Text="Continue" runat="server" OnClick="_btn_student_Click" />
+                        <asp:Button ID="_btn_student" Text="Continue" runat="server" OnClick="_btn_student_Click" />
                     </div>
                 </div>
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 cust__card">
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">Recruiter</h1>
                         <hr />
@@ -70,10 +79,10 @@
                             <li>Curate Applications</li>
                             <li>Help center access</li>
                         </ul>
-                        <asp:Button ID="_btn_recruiter" CssClass="btn btn-lg btn-block btn-outline-primary" Text="Continue" runat="server" OnClick="_btn_recruiter_Click" />
+                        <asp:Button ID="_btn_recruiter" Text="Continue" runat="server" OnClick="_btn_recruiter_Click" />
                     </div>
                 </div>
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 cust__card">
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">Admin</h1>
                         <hr />
@@ -83,7 +92,7 @@
                             <li>Manage Blacklists</li>
                             <li>Coordinate Placement Process</li>
                         </ul>
-                        <asp:Button ID="_btn_admin" CssClass="btn btn-lg btn-block btn-outline-primary" Text="Continue" runat="server" OnClick="_btn_admin_Click" />
+                        <asp:Button ID="_btn_admin" Text="Continue" runat="server" OnClick="_btn_admin_Click" />
                     </div>
                 </div>
             </div>
