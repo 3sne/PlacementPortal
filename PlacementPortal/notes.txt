@@ -1,0 +1,2 @@
+auth_*(*_id, password)
+student_account(student_id, first_name, last_name, gender, email, dob, course, branch, semester, section)

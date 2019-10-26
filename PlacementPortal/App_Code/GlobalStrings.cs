@@ -13,5 +13,6 @@ namespace PlacementPortal
         public static readonly string tAuthRecruiter = "auth_recruiter";
         public static readonly string tAuthAdmin = "auth_admin";
 
+        public static readonly string tStudentAccount = "student_account";
     }
 }

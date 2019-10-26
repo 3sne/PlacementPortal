@@ -15,7 +15,12 @@
             background-color: #f6f6f6;
         }
 
-        #_tb_username {
+        input[type=text], input[type=password] {
+            padding: 0.7em 1em 0.7em 1em;
+            border-radius: 1.5em;
+        }
+
+        /*#_tb_username {
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
             margin-bottom: -1px;
@@ -24,7 +29,7 @@
         #_tb_password {
             border-top-left-radius: 0;
             border-top-right-radius: 0;
-        }
+        }*/
 
         #_main_card {
             position: absolute;
@@ -47,13 +52,31 @@
             <form id="_form_login_attempt" class="form__container" runat="server">
                 <h1 class="h3 font-weight-bold" id="_header" runat="server">Sign In to continue</h1>
                 <div class="mt-4">
-                    <asp:Label ID="_lbl_username" AssociatedControlID="_tb_username" runat="server" />
-                    <asp:TextBox ID="_tb_username" CssClass="form-control" runat="server" />
-                    <asp:Label ID="_lbl_password" AssociatedControlID="_tb_password" runat="server" />
-                    <asp:TextBox ID="_tb_password" CssClass="form-control" TextMode="Password" runat="server" />
+                    <div>
+                        <asp:Label ID="_lbl_username" AssociatedControlID="_tb_username" runat="server" />
+                        <asp:TextBox ID="_tb_username" CssClass="form-control" runat="server" />
+                        <asp:RequiredFieldValidator
+                            ControlToValidate="_tb_username"
+                            CssClass="mt-1"
+                            Display="Dynamic"
+                            ErrorMessage="Required Field"
+                            ForeColor="Red"
+                            runat="server"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="mt-3">
+                        <asp:Label ID="_lbl_password" AssociatedControlID="_tb_password" runat="server" />
+                        <asp:TextBox ID="_tb_password" CssClass="form-control" TextMode="Password" runat="server" />
+                        <asp:RequiredFieldValidator
+                            ControlToValidate="_tb_password"
+                            CssClass="mt-1"
+                            Display="Dynamic"
+                            ErrorMessage="Required Field"
+                            ForeColor="Red"
+                            runat="server"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
                 <div class="checkbox mt-3">
-                    <label>
+                    <label style="margin-bottom: 0px">
                         <input id="_cb_remember_me" type="checkbox" value="remember-me" />
                         <label for="_cb_remember_me">Remember Me</label>
                     </label>

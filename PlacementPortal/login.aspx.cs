@@ -99,7 +99,7 @@ namespace PlacementPortal
                 Student s = new Student();
                 s.StudentId = username;
                 Session["active_user"] = s;
-                Server.Transfer("");
+                Response.Redirect("studenthome.aspx");
             }
         }
     }

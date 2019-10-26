@@ -74,7 +74,9 @@
     <Content Include="App_Themes\Theme1\test.css" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="studenthome1.aspx" />
     <Content Include="Web.config" />
+    <Content Include="studenthome.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\GlobalStrings.cs" />
@@ -94,9 +96,31 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\Student.cs" />
+    <Compile Include="studenthome1.aspx.cs">
+      <DependentUpon>studenthome1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studenthome1.aspx.designer.cs">
+      <DependentUpon>studenthome1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentMaster.Master.cs">
+      <DependentUpon>StudentMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentMaster.Master.designer.cs">
+      <DependentUpon>StudentMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="studenthome.aspx.cs">
+      <DependentUpon>studenthome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studenthome.aspx.designer.cs">
+      <DependentUpon>studenthome.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="StudentMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
