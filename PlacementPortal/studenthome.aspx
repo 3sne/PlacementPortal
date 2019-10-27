@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" Theme="Theme1" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="studenthome.aspx.cs" Inherits="PlacementPortal.StudentHome" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="_content_title" runat="server">
-    <title></title>
+    <title id="_page_title" runat="server"></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_content_body" runat="server">
     <style>

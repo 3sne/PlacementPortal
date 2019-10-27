@@ -13,6 +13,15 @@ namespace PlacementPortal {
     public partial class StudentHome {
         
         /// <summary>
+        /// _page_title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _page_title;
+        
+        /// <summary>
         /// _avatar_ph control.
         /// </summary>
         /// <remarks>

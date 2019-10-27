@@ -12,6 +12,18 @@ namespace PlacementPortal
     public partial class StudentHome : System.Web.UI.Page
     {
         SqlConnection connection = new SqlConnection(GlobalStrings.connectionString);
+
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (Session["active_theme"] != null)
+            {
+                Page.Theme = (string)Session["active_theme"];
+            } else
+            {
+                Page.Theme = "Theme1";
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["active_user"] == null)
@@ -45,6 +57,7 @@ namespace PlacementPortal
             }
 
             //update the UI
+            _page_title.InnerText = string.Format("{0}'s Homepage", activeUser.FirstName);
             if (activeUser.Gender == "Male") _avatar_ph.Src = "assets/img/avatar-1.png";
             else if (activeUser.Gender == "Female") _avatar_ph.Src = "assets/img/avatar-2.png";
             _name_ph.InnerText = string.Format("{0} {1}", activeUser.FirstName, activeUser.LastName);
