@@ -25,9 +25,15 @@ namespace PlacementPortal
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+        
         }
 
-
+        protected void gv_job_list_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.ToolTip = "Click Show More for Additional details";
+            }
+        }
     }
 }

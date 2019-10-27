@@ -10,42 +10,42 @@
 namespace PlacementPortal {
     
     
-    public partial class StudentMaster {
+    public partial class WebForm2 {
         
         /// <summary>
-        /// _content_title control.
+        /// _badge_registration control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder _content_title;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _badge_registration;
         
         /// <summary>
-        /// form1 control.
+        /// job_detail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.SqlDataSource job_detail;
         
         /// <summary>
-        /// _btn_logout control.
+        /// _btn_register control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button _btn_logout;
+        protected global::System.Web.UI.WebControls.Button _btn_register;
         
         /// <summary>
-        /// _content_body control.
+        /// _lbl_regstatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder _content_body;
+        protected global::System.Web.UI.WebControls.Label _lbl_regstatus;
     }
 }

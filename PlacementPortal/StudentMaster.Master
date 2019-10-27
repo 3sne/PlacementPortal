@@ -61,18 +61,26 @@
         }
 
         #_real_nav {
-            background-image: linear-gradient(to left, #74ebd5 0%, #9face6 100%);
+            color: white;
+            background-image: linear-gradient(to right, #6a11cb 0%, #66369D 100%);
+            /*background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);*/
+            /*background-image: linear-gradient(to left, #74ebd5 0%, #9face6 100%);*/
             /*    background-image: linear-gradient(to left, #0ba360 0%, #3cba92 100%); */
             box-shadow: 0 8px 6px -6px #999;
+        }
+
+        #_btn_logout {
+            width:100px;
+            margin: 0px;
         }
     </style>
 </head>
 <body>
-
+    <form id="form1" runat="server">
     <!-- Nav -->
     <nav id="_real_nav" class="navbar navbar-expand-lg cust__nav">
         <div class="container">
-            <a class="navbar-brand" href="studenthome.aspx" style="font-size: 3em; font-family: 'Dancing Script', cursive; font-weight: 600">PlacementPortal</a>
+            <a class="navbar-brand" href="studenthome.aspx" style="font-size: 2em; font-family: 'Dancing Script', cursive; font-weight: 600">PlacementPortal</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsable_menu" aria-controls="collapsable_menu" aria-expanded="false" aria-label="Toggle navigation">
                 <img src="assets/img/hamburger-icon-purple.png" style="height: 100%; width: 2em" />
             </button>
@@ -86,13 +94,15 @@
                     </li>
                     <li class="nav-item dropdown pl-2 pr-2">
                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
-                            <img src="assets/img/settings-icon-purple.png" style="height: 100%; width: 2em" />
+                            <img src="assets/img/settings-icon-white.png" style="height: 100%; width: 1.8em" />
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">My Account</a>
                             <a class="dropdown-item" href="#">Preferences</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <div class="text-center">
+                                <asp:Button id="_btn_logout" Text="Logout" runat="server" OnClick="_btn_logout_Click"/>
+                            </div>
                         </div>
                     </li>
                 </ul>
@@ -101,7 +111,7 @@
     </nav>
     <!-- End Nav -->
 
-    <form id="form1" runat="server">
+    
         <div>
             <asp:ContentPlaceHolder ID="_content_body" runat="server" />
         </div>

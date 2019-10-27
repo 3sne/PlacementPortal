@@ -33,13 +33,13 @@
                         <hr />
                         <ul class="list-unstyled" style="margin-bottom: 0px">
                             <li>
-                                <img src="assets/img/email-icon.png" style="height: 100%; width: 1.5em" />
+                                <img src="assets/img/email-icon.png" style="height: 100%; width: 1.4em" />
                                 <span id="_email_ph" runat="server">panchanimukur@gmail.com</span></li>
                             <li>
-                                <img src="assets/img/course-icon.png" style="height: 100%; width: 1.5em" />
+                                <img src="assets/img/course-icon.png" style="height: 100%; width: 1.4em" />
                                 <span id="_brsec_ph" runat="server">BTech, CSE</span></li>
                             <li>
-                                <img src="assets/img/institute-icon.png" style="height: 100%; width: 1.5em" />
+                                <img src="assets/img/institute-icon.png" style="height: 100%; width: 1.4em" />
                                 <span>MIT, Manipal</span></li>
                         </ul>
                     </div>
@@ -49,7 +49,11 @@
                 <div class="card mb-4 cust__card">
                     <div class="card-body">
                         <div class="text-center">
-                            <h3 class="card-title">PH: Applied companies</h3>
+                            <h3 class="card-title">Current Registrations</h3>
+                        </div>
+                        <hr />
+                        <div>
+                            <ul class="list-unstyled" id="_currreg_ph" runat="server"></ul>
                         </div>
                     </div>
                 </div>
@@ -61,8 +65,35 @@
                 <div class="card mb-4 cust__card">
                     <div class="card-body">
                         <div class="text-center">
-                            <h3 class="card-title">PH: Latest Announcements</h3>
+                            <h3 class="card-title">Announcements</h3>
                         </div>
+                        <asp:SqlDataSource runat="server"
+                            ID="_sql_announcement" 
+                            ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\db_placement.mdf;Integrated Security=True"
+                            ProviderName="System.Data.SqlClient"
+                            SelectCommand="SELECT [date], [content] FROM [announcements] ORDER BY [date] DESC, [content]" />
+                        
+                        <asp:GridView runat="server"
+                            ID="_gv_announcement"
+                            AutoGenerateColumns="False"
+                            BorderStyle="None"
+                            GridLines="None"
+                            ShowHeader="false"
+                            DataSourceID="_sql_announcement"
+                            CssClass="table table-responsive table-hover" >
+                            <Columns>
+                                <asp:BoundField 
+                                    DataField="date" 
+                                    ReadOnly="true"
+                                    DataFormatString = "{0:dd/MMM/yyyy}"
+                                    SortExpression="date" />
+                                <asp:BoundField 
+                                    DataField="content" 
+                                    ReadOnly="false" 
+                                    SortExpression="content" />
+                            </Columns>
+
+                        </asp:GridView>                        
                     </div>
                 </div>
 

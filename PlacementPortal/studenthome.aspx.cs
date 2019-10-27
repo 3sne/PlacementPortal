@@ -62,6 +62,21 @@ namespace PlacementPortal
             else if (activeUser.Gender == "Female") _avatar_ph.Src = "assets/img/avatar-2.png";
             _name_ph.InnerText = string.Format("{0} {1}", activeUser.FirstName, activeUser.LastName);
             _brsec_ph.InnerText = string.Format("{0}-{1} | {2} | {3}", activeUser.Semester, activeUser.Section, activeUser.Course, activeUser.Branch);
+
+
+            //Same for current registration card.
+            SqlCommand command2 = new SqlCommand();
+            command2.Connection = connection;
+            command2.CommandText = "SELECT recruiter_account.recruiter_name, data_job_list.job_id, data_job_list.position, data_job_list.offer_type FROM data_job_list INNER JOIN data_job_registration ON data_job_list.job_id = data_job_registration.job_id INNER JOIN recruiter_account ON data_job_list.recruiter_id = recruiter_account.recruiter_id INNER JOIN student_account ON data_job_registration.student_id = student_account.student_id WHERE student_account.student_id=@student_id";
+            command2.Parameters.AddWithValue("@student_id", activeUser.StudentId);
+            SqlDataAdapter adap2 = new SqlDataAdapter(command2);
+            connection.Open();
+            adap2.Fill(ds, "local_job_reg_info");
+            connection.Close();
+            foreach (DataRow dr in ds.Tables["local_job_reg_info"].Rows)
+            {
+                _currreg_ph.InnerHtml = string.Format("<li>{0} | {1}</li>", dr["recruiter_name"], dr["position"]);
+            }
         }
     }
 }

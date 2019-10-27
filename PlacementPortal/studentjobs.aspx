@@ -8,7 +8,7 @@
         ID="sql_jobs"
         ProviderName="System.Data.SqlClient"
         ConnectionString="<%$ ConnectionStrings:main_db %>"
-        SelectCommand="SELECT r.recruiter_name, jl.position, jl.eligible_gpa, jl.eligible_branch, jl.offer_type FROM data_job_list AS jl INNER JOIN recruiter_account AS r ON jl.recruiter_id = r.recruiter_id ORDER BY r.recruiter_name, jl.position"
+        SelectCommand="SELECT jl.job_id, r.recruiter_name, jl.position, jl.eligible_gpa, jl.eligible_branch, jl.offer_type, jl.registration_deadline FROM data_job_list AS jl INNER JOIN recruiter_account AS r ON jl.recruiter_id = r.recruiter_id ORDER BY jl.registration_deadline,r.recruiter_name, jl.position"
         runat="server" />
     <div class="container mt-4">
         <div class="row">
@@ -21,12 +21,17 @@
                 <div class="card mb-4 cust__card">
                     <div class="card-body">
                         <asp:GridView runat="server"
+                            ID="gv_job_list"
                             AllowSorting="True"
                             AutoGenerateColumns="false"
+                            BorderStyle="None"
+                            GridLines="None"
                             DataSourceID="sql_jobs"
-                            CssClass="table table-bordered table-hover table-condensed">
+                            DataKeyNames="job_id"
+                            OnRowDataBound="gv_job_list_RowDataBound"
+                            CssClass="table table-responsive table-hover">
                             <Columns>
-                                
+
                                 <asp:TemplateField HeaderText="#" ControlStyle-Font-Bold="true">
                                     <ItemTemplate>
                                         <%# Container.DataItemIndex + 1 %>
@@ -34,27 +39,40 @@
                                     <ItemStyle Width="2%" Font-Bold="true" />
                                 </asp:TemplateField>
 
-                                <asp:BoundField 
-                                    HeaderText="Company" 
-                                    DataField="recruiter_name"/>
+                                <asp:BoundField
+                                    HeaderText="Company"
+                                    DataField="recruiter_name"
+                                    SortExpression="recruiter_name" />
 
-                                <asp:BoundField 
-                                    HeaderText="Position" 
-                                    DataField="position"/>
-                                
-                                <asp:BoundField 
-                                    HeaderText="Minimum GPA" 
+                                <asp:BoundField
+                                    HeaderText="Position"
+                                    DataField="position"
+                                    SortExpression="position" />
+
+                                <asp:BoundField
+                                    HeaderText="Minimum GPA"
                                     DataField="eligible_gpa"
                                     SortExpression="eligible_gpa" />
 
-                                <asp:BoundField 
-                                    HeaderText="Eligible Branches" 
-                                    DataField="eligible_branch"/>
+                                <asp:BoundField
+                                    HeaderText="Eligible Branches"
+                                    DataField="eligible_branch" />
 
-                                <asp:BoundField 
-                                    HeaderText="Offer" 
+                                <asp:BoundField
+                                    HeaderText="Offer"
                                     DataField="offer_type"
                                     SortExpression="offer_type" />
+
+                                <asp:BoundField
+                                    DataField="registration_deadline"
+                                    ReadOnly="true"
+                                    DataFormatString="{0:dd/MMM/yyyy}"
+                                    SortExpression="registration_deadline" />
+
+                                <asp:HyperLinkField
+                                    DataNavigateUrlFormatString="jobdetail.aspx?job_id={0}"
+                                    DataNavigateUrlFields="job_id"
+                                    Text="Show More" />
 
                             </Columns>
                         </asp:GridView>
