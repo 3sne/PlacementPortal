@@ -34,7 +34,7 @@
                         <ul class="list-unstyled" style="margin-bottom: 0px">
                             <li>
                                 <img src="assets/img/email-icon.png" style="height: 100%; width: 1.4em" />
-                                <span id="_email_ph" runat="server">panchanimukur@gmail.com</span></li>
+                                <span id="_email_ph" runat="server">lmg@manipal.com</span></li>
                             <li>
                                 <img src="assets/img/course-icon.png" style="height: 100%; width: 1.4em" />
                                 <span id="_brsec_ph" runat="server">BTech, CSE</span></li>

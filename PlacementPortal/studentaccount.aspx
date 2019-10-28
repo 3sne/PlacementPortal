@@ -24,8 +24,10 @@
                         <asp:FormView runat="server"
                             ID="fv_student_info"
                             CssClass="mx-auto"
+                            Width="100%"
                             DataKeyNames="student_id"
-                            DataSourceID="SqlDataSource1">
+                            DataSourceID="SqlDataSource1"
+                            OnDataBound="fv_student_info_DataBound">
 
                             <EditItemTemplate>
                                 <p class="h4 text-center mb-3">Edit General Info</p>
@@ -61,7 +63,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="dobTextBox">Date of Birth(MM/DD/YYYY)</label>
+                                            <label for="dobTextBox">Date of Birth(mdy)</label>
                                             <asp:TextBox ID="dobTextBox" CssClass="form-control" runat="server" Text='<%# Bind("dob") %>' />
                                         </div>
                                     </div>
@@ -94,19 +96,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-row mt-3 mr-auto">
+                                <div class="form-row mt-3 mx-auto justify-content-center">
                                     <style>
                                         .more {
                                             background: #fff;
-                                            border: solid 2px #ff0000 ;
+                                            border: solid 2px #ff0000;
                                             color: black;
                                             transition: 0.3s all ease;
                                         }
 
-                                        .more:hover {
-                                            background: #f6f6f6;
-                                            color: black;
-                                        }
+                                            .more:hover {
+                                                background: #f6f6f6;
+                                                color: black;
+                                            }
                                     </style>
                                     <div class="form-group">
                                         <asp:LinkButton ID="UpdateButton" runat="server" CssClass="link__buttons" CausesValidation="True" CommandName="Update" Text="Update" />
@@ -116,74 +118,98 @@
                                 </div>
                             </EditItemTemplate>
 
-                            <InsertItemTemplate>
-                                student_id:
-                                <asp:TextBox ID="student_idTextBox" runat="server" Text='<%# Bind("student_id") %>' />
-                                <br />
-                                first_name:
-                                <asp:TextBox ID="first_nameTextBox" runat="server" Text='<%# Bind("first_name") %>' />
-                                <br />
-                                last_name:
-                                <asp:TextBox ID="last_nameTextBox" runat="server" Text='<%# Bind("last_name") %>' />
-                                <br />
-                                gender:
-                                <asp:TextBox ID="genderTextBox" runat="server" Text='<%# Bind("gender") %>' />
-                                <br />
-                                email:
-                                <asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' />
-                                <br />
-                                dob:
-                                <asp:TextBox ID="dobTextBox" runat="server" Text='<%# Bind("dob") %>' />
-                                <br />
-                                course:
-                                <asp:TextBox ID="courseTextBox" runat="server" Text='<%# Bind("course") %>' />
-                                <br />
-                                branch:
-                                <asp:TextBox ID="branchTextBox" runat="server" Text='<%# Bind("branch") %>' />
-                                <br />
-                                semester:
-                                <asp:TextBox ID="semesterTextBox" runat="server" Text='<%# Bind("semester") %>' />
-                                <br />
-                                section:
-                                <asp:TextBox ID="sectionTextBox" runat="server" Text='<%# Bind("section") %>' />
-                                <br />
-                                <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                                &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                            </InsertItemTemplate>
-
                             <ItemTemplate>
-                                student_id:
-                                <asp:Label ID="student_idLabel" runat="server" Text='<%# Eval("student_id") %>' />
-                                <br />
-                                first_name:
-                                <asp:Label ID="first_nameLabel" runat="server" Text='<%# Bind("first_name") %>' />
-                                <br />
-                                last_name:
-                                <asp:Label ID="last_nameLabel" runat="server" Text='<%# Bind("last_name") %>' />
-                                <br />
-                                gender:
-                                <asp:Label ID="genderLabel" runat="server" Text='<%# Bind("gender") %>' />
-                                <br />
-                                email:
-                                <asp:Label ID="emailLabel" runat="server" Text='<%# Bind("email") %>' />
-                                <br />
-                                dob:
-                                <asp:Label ID="dobLabel" runat="server" Text='<%# Bind("dob") %>' />
-                                <br />
-                                course:
-                                <asp:Label ID="courseLabel" runat="server" Text='<%# Bind("course") %>' />
-                                <br />
-                                branch:
-                                <asp:Label ID="branchLabel" runat="server" Text='<%# Bind("branch") %>' />
-                                <br />
-                                semester:
-                                <asp:Label ID="semesterLabel" runat="server" Text='<%# Bind("semester") %>' />
-                                <br />
-                                section:
-                                <asp:Label ID="sectionLabel" runat="server" Text='<%# Bind("section") %>' />
-                                <br />
-                                <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
-                                &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                                <p class="h4 text-center mb-3">General Info</p>
+                                <hr />
+                                <div class="form-group">
+                                    <label for="student_idLabel">Student ID</label>
+                                    <asp:Label ID="student_idLabel" CssClass="form-control" runat="server" Text='<%# Eval("student_id") %>' />
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="first_nameLabel">First Name</label>
+                                            <asp:Label ID="first_nameLabel" CssClass="form-control" runat="server" Text='<%# Bind("first_name") %>' />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="last_nameLabel">Last Name</label>
+                                            <asp:Label ID="last_nameLabel" CssClass="form-control" runat="server" Text='<%# Bind("last_name") %>' />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="emailLabel">Email</label>
+                                    <asp:Label ID="emailLabel" CssClass="form-control" runat="server" Text='<%# Bind("email") %>' />
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="genderLabel">Gender</label>
+                                            <asp:Label ID="genderLabel" CssClass="form-control" runat="server" Text='<%# Bind("gender") %>' />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="dobLabel">Date of Birth(mdy)</label>
+                                            <asp:Label ID="dobLabel" CssClass="form-control" runat="server" Text='<%# Bind("dob") %>' />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="courseLabel">Course</label>
+                                            <asp:Label ID="courseLabel" CssClass="form-control" runat="server" Text='<%# Bind("course") %>' />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="branchLabel">Branch</label>
+                                            <asp:Label ID="branchLabel" CssClass="form-control" runat="server" Text='<%# Bind("branch") %>' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="semesterLabel">Semester</label>
+                                            <asp:Label ID="semesterLabel" CssClass="form-control" runat="server" Text='<%# Bind("semester") %>' />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="sectionLabel">Section</label>
+                                            <asp:Label ID="sectionLabel" CssClass="form-control" runat="server" Text='<%# Bind("section") %>' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row mr-auto justify-content-center">
+                                    <style>
+                                        span {
+                                            display: block;
+                                        }
+
+                                        .more {
+                                            background: #fff;
+                                            border: solid 2px #ff0000;
+                                            color: black;
+                                            transition: 0.3s all ease;
+                                        }
+
+                                            .more:hover {
+                                                background: #f6f6f6;
+                                                color: black;
+                                            }
+                                    </style>
+                                    <div class="form-group">
+                                        <asp:LinkButton ID="EditButton" CssClass="link__buttons" Width="5em" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+                                    </div>
+                                </div>
                             </ItemTemplate>
 
                         </asp:FormView>
@@ -194,7 +220,6 @@
                             ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\db_placement.mdf;Integrated Security=True"
                             OldValuesParameterFormatString="original_{0}"
                             ProviderName="System.Data.SqlClient"
-                            InsertCommand="INSERT INTO [student_account] ([student_id], [first_name], [last_name], [gender], [email], [dob], [course], [branch], [semester], [section]) VALUES (@student_id, @first_name, @last_name, @gender, @email, @dob, @course, @branch, @semester, @section)"
                             SelectCommand="SELECT * FROM [student_account] WHERE student_id=@student_id"
                             UpdateCommand="UPDATE [student_account] SET [first_name] = @first_name, [last_name] = @last_name, [gender] = @gender, [email] = @email, [dob] = @dob, [course] = @course, [branch] = @branch, [semester] = @semester, [section] = @section WHERE [student_id] = @original_student_id AND [first_name] = @original_first_name AND [last_name] = @original_last_name AND [gender] = @original_gender AND [email] = @original_email AND [dob] = @original_dob AND [course] = @original_course AND [branch] = @original_branch AND [semester] = @original_semester AND [section] = @original_section">
                             <SelectParameters>
@@ -234,6 +259,14 @@
                                 <asp:Parameter Name="original_section" Type="String" />
                             </UpdateParameters>
                         </asp:SqlDataSource>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card mb-4 mt-3 cust__card">
+                    <div class="card-body">
+
                     </div>
                 </div>
             </div>

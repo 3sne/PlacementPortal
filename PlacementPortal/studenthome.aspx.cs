@@ -57,6 +57,7 @@ namespace PlacementPortal
             }
 
             //update the UI
+            _email_ph.InnerText = activeUser.Email;
             _page_title.InnerText = string.Format("{0}'s Homepage", activeUser.FirstName);
             if (activeUser.Gender == "Male") _avatar_ph.Src = "assets/img/avatar-1.png";
             else if (activeUser.Gender == "Female") _avatar_ph.Src = "assets/img/avatar-2.png";

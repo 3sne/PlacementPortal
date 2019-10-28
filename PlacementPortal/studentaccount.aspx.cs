@@ -20,5 +20,28 @@ namespace PlacementPortal
             Page.Title = string.Format("{0}'s Account", activeUser.FirstName);
             SqlDataSource1.SelectParameters["student_id"].DefaultValue = activeUser.StudentId;
         }
+
+        protected void fv_student_info_DataBound(object sender, EventArgs e)
+        {
+            if (fv_student_info.CurrentMode == FormViewMode.Edit)
+            {
+                TextBox dobTextBox = (TextBox)fv_student_info.FindControl("dobTextBox");
+                if (dobTextBox != null)
+                {
+                    DateTime date = Convert.ToDateTime(dobTextBox.Text);
+                    dobTextBox.Text = string.Format("{0:MM/dd/yyyy}", date);
+                }
+            }
+
+            if (fv_student_info.CurrentMode == FormViewMode.ReadOnly)
+            {
+                Label dobLabel = (Label)fv_student_info.FindControl("dobLabel");
+                if (dobLabel != null)
+                {
+                    DateTime date = Convert.ToDateTime(dobLabel.Text);
+                    dobLabel.Text = string.Format("{0:MM/dd/yyyy}", date);
+                }
+            }
+        }
     }
 }
