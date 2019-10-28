@@ -3,7 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="_content_title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="_content_body" runat="server">
-
+    <style>
+        body {
+            background: #f6f6f6;
+        }
+    </style>
     <div class="container mt-4">
         <div class="row">
             <div class="col-12">
@@ -13,7 +17,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
+            <!-- Form View 1 >> General Info -->
+            <div class="col-lg-6">
                 <div class="card mb-4 mt-3 cust__card">
                     <div class="card-body">
                         <asp:FormView runat="server"
@@ -24,6 +29,7 @@
 
                             <EditItemTemplate>
                                 <p class="h4 text-center mb-3">Edit General Info</p>
+                                <hr />
                                 <div class="form-group">
                                     <label for="student_idLabel1">Student ID: </label>
                                     <asp:Label ID="student_idLabel1" runat="server" Text='<%# Eval("student_id") %>' />
@@ -89,9 +95,22 @@
                                     </div>
                                 </div>
                                 <div class="form-row mt-3 mr-auto">
+                                    <style>
+                                        .more {
+                                            background: #fff;
+                                            border: solid 2px #ff0000 ;
+                                            color: black;
+                                            transition: 0.3s all ease;
+                                        }
+
+                                        .more:hover {
+                                            background: #f6f6f6;
+                                            color: black;
+                                        }
+                                    </style>
                                     <div class="form-group">
                                         <asp:LinkButton ID="UpdateButton" runat="server" CssClass="link__buttons" CausesValidation="True" CommandName="Update" Text="Update" />
-                                        <asp:LinkButton ID="UpdateCancelButton" CssClass="link__buttons" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                                        <asp:LinkButton ID="UpdateCancelButton" CssClass="link__buttons more" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                                     </div>
                                 </div>
                                 </div>
