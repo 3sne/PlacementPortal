@@ -18,7 +18,7 @@ namespace PlacementPortal
             }
             Student activeUser = (Student)Session["active_user"];
             Page.Title = string.Format("{0}'s Account", activeUser.FirstName);
-//            SqlDataSource1.SelectParameters["student_id"].DefaultValue = activeUser.StudentId;
+            SqlDataSource1.SelectParameters["student_id"].DefaultValue = activeUser.StudentId;
         }
     }
 }
