@@ -19,6 +19,7 @@ namespace PlacementPortal
             Student activeUser = (Student)Session["active_user"];
             Page.Title = string.Format("{0}'s Account", activeUser.FirstName);
             SqlDataSource1.SelectParameters["student_id"].DefaultValue = activeUser.StudentId;
+            _sql_additional.SelectParameters["student_id"].DefaultValue = activeUser.StudentId;
         }
 
         protected void fv_student_info_DataBound(object sender, EventArgs e)
