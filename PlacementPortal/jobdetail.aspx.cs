@@ -59,6 +59,24 @@ namespace PlacementPortal
                 return;
             }
 
+            //Check if registration date has passed.
+            SqlCommand command1 = new SqlCommand();
+            command1.Connection = connection;
+            command1.CommandText = "SELECT registration_deadline FROM data_job_list WHERE job_id=@job_id";
+            command1.Parameters.AddWithValue("@job_id", Request.QueryString["job_id"].ToString());
+            connection.Open();
+            SqlDataReader rdr = command1.ExecuteReader();
+            rdr.Read();
+            DateTime deadline = Convert.ToDateTime(rdr["registration_deadline"]);
+            if (deadline < DateTime.Now)
+            {
+                _lbl_regstatus.Text = "You missed the registration date :(";
+                _lbl_regstatus.CssClass = baseClass + "alert-danger";
+                _lbl_regstatus.Visible = true;
+                return;
+            }
+            connection.Close();
+
             //if not, attempt and update badge
             Student activeUser = (Student)Session["active_user"];
             SqlCommand command = new SqlCommand();

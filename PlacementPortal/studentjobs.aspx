@@ -8,7 +8,7 @@
         ID="sql_jobs"
         ProviderName="System.Data.SqlClient"
         ConnectionString="<%$ ConnectionStrings:main_db %>"
-        SelectCommand="SELECT jl.job_id, r.recruiter_name, jl.position, jl.eligible_gpa, jl.eligible_branch, jl.offer_type, jl.registration_deadline FROM data_job_list AS jl INNER JOIN recruiter_account AS r ON jl.recruiter_id = r.recruiter_id ORDER BY jl.registration_deadline,r.recruiter_name, jl.position"
+        SelectCommand="SELECT jl.job_id, r.recruiter_name, jl.position, jl.eligible_gpa, jl.eligible_branch, jl.offer_type, jl.registration_deadline FROM data_job_list AS jl INNER JOIN recruiter_account AS r ON jl.recruiter_id = r.recruiter_id ORDER BY jl.registration_deadline DESC,r.recruiter_name, jl.position"
         runat="server" />
     <div class="container mt-4">
         <div class="row">
@@ -64,6 +64,7 @@
                                     SortExpression="offer_type" />
 
                                 <asp:BoundField
+                                    HeaderText="Last Date"
                                     DataField="registration_deadline"
                                     ReadOnly="true"
                                     DataFormatString="{0:dd/MMM/yyyy}"

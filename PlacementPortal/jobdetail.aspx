@@ -44,7 +44,7 @@
                                 <asp:BoundField DataField="eligible_branch" HeaderStyle-CssClass="cust_font" HeaderText="Eligible Branches" SortExpression="eligible_branch" />
                                 <asp:BoundField DataField="offer_type" HeaderStyle-CssClass="cust_font" HeaderText="Offer Type" SortExpression="offer_type" />
                                 <asp:BoundField DataField="compensation" HeaderStyle-CssClass="cust_font" HeaderText="Compensation" SortExpression="compensation" />
-                                <asp:BoundField DataField="registration_deadline" HeaderStyle-CssClass="cust_font" HeaderText="Registration Deadline" SortExpression="registration_deadline" />
+                                <asp:BoundField DataField="registration_deadline" HeaderStyle-CssClass="cust_font" HeaderText="Registration Deadline" DataFormatString="{0:dd/MMM/yyyy}" SortExpression="registration_deadline" />
                             </Fields>
                         </asp:DetailsView>
                         <p class="text-muted">Warning: Faux registration can lead to blacklisting of the candidate. Proceed with certainty.</p>

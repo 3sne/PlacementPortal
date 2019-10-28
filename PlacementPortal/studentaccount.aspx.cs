@@ -11,7 +11,14 @@ namespace PlacementPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["active_user"] == null)
+            {
+                Response.Redirect("index.aspx");
+                return;
+            }
+            Student activeUser = (Student)Session["active_user"];
+            Page.Title = string.Format("{0}'s Account", activeUser.FirstName);
+//            SqlDataSource1.SelectParameters["student_id"].DefaultValue = activeUser.StudentId;
         }
     }
 }

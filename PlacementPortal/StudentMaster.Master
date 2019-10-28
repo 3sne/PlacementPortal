@@ -97,7 +97,7 @@
                             <img src="assets/img/settings-icon-white.png" style="height: 100%; width: 1.8em" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">My Account</a>
+                            <a class="dropdown-item" href="studentaccount.aspx">My Account</a>
                             <a class="dropdown-item" href="#">Preferences</a>
                             <div class="dropdown-divider"></div>
                             <div class="text-center">

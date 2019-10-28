@@ -33,6 +33,18 @@ namespace PlacementPortal
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.ToolTip = "Click Show More for Additional details";
+                DateTime now = DateTime.Now;
+                DateTime dead_line = Convert.ToDateTime(DataBinder.Eval(e.Row.DataItem, "registration_deadline"));
+                if (dead_line > now)
+                {
+                    e.Row.CssClass = "table-success";
+                } else if(dead_line == now)
+                {
+                    e.Row.CssClass = "table-warning";
+                } else
+                {
+                    e.Row.CssClass = "table-danger";
+                }
             }
         }
     }
