@@ -171,7 +171,18 @@ namespace PlacementPortal
                 }
                 else if(role == "recruiter")
                 {
-
+                    Recruiter activeRecruiter = new Recruiter();
+                    activeRecruiter.RecruiterId = username;
+                    Session["active_recruiter"] = activeRecruiter;
+                    if (_cb_remember_me.Checked == true)
+                    {
+                        //cookie create. remember him
+                        HttpCookie coki = new HttpCookie("pre_recruiter");
+                        coki["_recruiter_id"] = _tb_username.Text;
+                        coki["_recruiter_pw"] = _tb_password.Text;
+                        Response.Cookies.Add(coki);
+                    }
+                    Response.Redirect("recHome.aspx");
                 }
             }
         }

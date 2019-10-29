@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RecruiterMaster.master.cs" Inherits="PlacementPortal.RecruiterMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="ext/css/bootstrap.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+    <style>
+        #bg__drop {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 110%;
+            min-height: 18em;
+            background-image: linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%);
+            z-index: -1;
+            border-radius: 100px;
+        }
+
+        a, u, a:hover {
+            color: inherit;
+            text-decoration: none !important;
+        }
+
+        .navbar-nav > li > a {
+            line-height: 50px;
+        }
+
+        .under__line {
+            transition: 1s all ease-in;
+            border-bottom: 0px;
+        }
+
+            .under__line:hover {
+            }
+
+            .under__line:after {
+                background: none repeat scroll 0 0 transparent;
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 2px;
+                left: 50%;
+                position: absolute;
+                background: #000;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+            }
+
+            .under__line:hover:after {
+                width: 100%;
+                left: 0;
+            }
+
+        #navbar__right {
+            font-family: "Muli", sans-serif;
+            font-size: 1.4em;
+        }
+
+        #_real_nav {
+            color: white;
+            background-image: linear-gradient(to right, #6a11cb 0%, #66369D 100%);
+            /*background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);*/
+            /*background-image: linear-gradient(to left, #74ebd5 0%, #9face6 100%);*/
+            /*    background-image: linear-gradient(to left, #0ba360 0%, #3cba92 100%); */
+            box-shadow: 0 8px 6px -6px #999;
+        }
+
+        #_btn_logout {
+            width:100px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Nav -->
+        <nav id="_real_nav" class="navbar navbar-expand-lg cust__nav">
+            <div class="container">
+                <a class="navbar-brand" href="recHome.aspx" style="font-size: 2em; font-family: 'Dancing Script', cursive; font-weight: 600">PlacementPortal</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsable_menu" aria-controls="collapsable_menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <img src="assets/img/hamburger-icon-purple.png" style="height: 100%; width: 2em" />
+                </button>
+                <div class="collapse navbar-collapse" id="collapsable_menu">
+                    <ul class="navbar-nav ml-auto" id="navbar__right">
+                        <li class="nav-item pl-2 pr-2">
+                            <a class="nav-link" href="#">My Jobs</a>
+                        </li>
+                        <li class="nav-item pl-2 pr-2">
+                            <a class="nav-link" href="#">Applications</a>
+                        </li>
+                        <li class="nav-item dropdown pl-2 pr-2">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true">
+                                <img src="assets/img/settings-icon-white.png" style="height: 100%; width: 1.8em" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-divider"></div>
+                                <div class="text-center">
+                                    <asp:Button ID="_btn_logout" Text="Logout" runat="server" OnClick="_btn_logout_Click" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Nav -->
+
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <!-- Footer -->
+    <footer class="container">
+        <div class="row justify-content-center m-4">
+            <p class="h4 text-center">Made with &#9829; by 3sne</p>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <script type="text/javascript" src="ext/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="ext/js/popper.min.js"></script>
+    <script type="text/javascript" src="ext/js/bootstrap.min.js"></script>
+</body>
+</html>

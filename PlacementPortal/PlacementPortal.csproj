@@ -85,6 +85,7 @@
     <Content Include="studentregister.aspx" />
     <Content Include="studentprofiles.aspx" />
     <Content Include="studentpref.aspx" />
+    <Content Include="recHome.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\GlobalStrings.cs" />
@@ -105,6 +106,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\Student.cs" />
     <Compile Include="App_Code\Recruiter.cs" />
+    <Compile Include="RecruiterMaster.Master.cs">
+      <DependentUpon>RecruiterMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecruiterMaster.Master.designer.cs">
+      <DependentUpon>RecruiterMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="resume.aspx.cs">
       <DependentUpon>resume.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,10 +176,18 @@
     <Compile Include="studentpref.aspx.designer.cs">
       <DependentUpon>studentpref.aspx</DependentUpon>
     </Compile>
+    <Compile Include="recHome.aspx.cs">
+      <DependentUpon>recHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recHome.aspx.designer.cs">
+      <DependentUpon>recHome.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="StudentMaster.Master" />
+    <Content Include="RecruiterMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
