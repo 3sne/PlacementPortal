@@ -71,6 +71,7 @@
                                     SortExpression="registration_deadline" />
 
                                 <asp:HyperLinkField
+                                    ControlStyle-ForeColor="Purple"
                                     DataNavigateUrlFormatString="jobdetail.aspx?job_id={0}"
                                     DataNavigateUrlFields="job_id"
                                     Text="Show More" />

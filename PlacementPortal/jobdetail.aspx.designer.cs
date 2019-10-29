@@ -31,6 +31,15 @@ namespace PlacementPortal {
         protected global::System.Web.UI.WebControls.SqlDataSource job_detail;
         
         /// <summary>
+        /// ddl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl;
+        
+        /// <summary>
         /// _btn_register control.
         /// </summary>
         /// <remarks>

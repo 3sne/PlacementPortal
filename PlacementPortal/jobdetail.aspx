@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-12">
                 <div>
-                    <p class="display-4 ml-4">Job Details<span id="_badge_registration" style="font-size: 1rem; vertical-align:middle" runat="server"></span></p>
+                    <p class="display-4 ml-4">Job Details<span id="_badge_registration" style="font-size: 1rem; vertical-align: middle" runat="server"></span></p>
                 </div>
             </div>
         </div>
@@ -47,6 +47,13 @@
                                 <asp:BoundField DataField="registration_deadline" HeaderStyle-CssClass="cust_font" HeaderText="Registration Deadline" DataFormatString="{0:dd/MMM/yyyy}" SortExpression="registration_deadline" />
                             </Fields>
                         </asp:DetailsView>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <p class=" mt-3 h5 font-weight-bold">Select a Resume to send, or a make a new one <a style="color: purple" href="studentprofiles.aspx">here</a></p>
+                                <asp:DropDownList ID="ddl" runat="server" />
+                            </div>
+                        </div>
                         <p class="text-muted">Warning: Faux registration can lead to blacklisting of the candidate. Proceed with certainty.</p>
                         <span>
                             <asp:Button

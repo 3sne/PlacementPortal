@@ -15,6 +15,7 @@ namespace PlacementPortal
         private bool alreadyRegistered = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["active_user"] == null)
             {
                 Response.Redirect("index.aspx");
@@ -45,6 +46,20 @@ namespace PlacementPortal
                 _badge_registration.InnerText = "Registered";
             }
 
+            if (IsPostBack) return;
+            //populate drop down list
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = "SELECT data_student_resume.resume_name as c FROM data_student_resume INNER JOIN student_account ON data_student_resume.student_id = student_account.student_id WHERE data_student_resume.student_id=@student_id";
+            cmd.Parameters.AddWithValue("@student_id", activeUser.StudentId);
+            connection.Open();
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                ddl.Items.Add(rdr["c"].ToString());
+            }
+            rdr.Close();
+            connection.Close();
         }
 
         protected void _btn_register_Click(object sender, EventArgs e)
@@ -81,9 +96,10 @@ namespace PlacementPortal
             Student activeUser = (Student)Session["active_user"];
             SqlCommand command = new SqlCommand();
             command.Connection = connection;
-            command.CommandText = "INSERT INTO data_job_registration(student_id, job_id) VALUES(@student_id , @job_id)";
+            command.CommandText = "INSERT INTO data_job_registration(student_id, job_id, resume_id) VALUES(@student_id , @job_id, @resume_id)";
             command.Parameters.AddWithValue("@student_id", activeUser.StudentId);
             command.Parameters.AddWithValue("@job_id", Request.QueryString["job_id"].ToString());
+            command.Parameters.AddWithValue("@resume_id", ddl.SelectedItem.Text);
             connection.Open();
             Int32 count = (Int32)command.ExecuteNonQuery();
             connection.Close();
