@@ -21,6 +21,10 @@ namespace PlacementPortal
         protected void _btn_logout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
+            if (Request.Cookies["pre_student"] != null)
+            {
+                Response.Cookies["pre_student"].Expires = DateTime.Now.AddDays(-1);
+            }
             Response.Redirect("index.aspx");
         }
     }

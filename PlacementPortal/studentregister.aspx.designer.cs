@@ -10,96 +10,132 @@
 namespace PlacementPortal {
     
     
-    public partial class login {
+    public partial class WebForm4 {
         
         /// <summary>
-        /// _form_login_attempt control.
+        /// student_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm _form_login_attempt;
+        protected global::System.Web.UI.WebControls.TextBox student_id;
         
         /// <summary>
-        /// _header control.
+        /// first_nameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl _header;
+        protected global::System.Web.UI.WebControls.TextBox first_nameTextBox;
         
         /// <summary>
-        /// _lbl_username control.
+        /// last_nameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label _lbl_username;
+        protected global::System.Web.UI.WebControls.TextBox last_nameTextBox;
         
         /// <summary>
-        /// _tb_username control.
+        /// pw_original control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _tb_username;
+        protected global::System.Web.UI.WebControls.TextBox pw_original;
         
         /// <summary>
-        /// _lbl_password control.
+        /// pw_reenter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label _lbl_password;
+        protected global::System.Web.UI.WebControls.TextBox pw_reenter;
         
         /// <summary>
-        /// _tb_password control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox _tb_password;
+        protected global::System.Web.UI.WebControls.TextBox email;
         
         /// <summary>
-        /// _cb_remember_me control.
+        /// phone_number control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox _cb_remember_me;
+        protected global::System.Web.UI.WebControls.TextBox phone_number;
         
         /// <summary>
-        /// _btn_login control.
+        /// gender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button _btn_login;
+        protected global::System.Web.UI.WebControls.TextBox gender;
         
         /// <summary>
-        /// _btn_register control.
+        /// dob control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button _btn_register;
+        protected global::System.Web.UI.WebControls.TextBox dob;
         
         /// <summary>
-        /// _lbl_register_urge control.
+        /// course control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label _lbl_register_urge;
+        protected global::System.Web.UI.WebControls.TextBox course;
+        
+        /// <summary>
+        /// branch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox branch;
+        
+        /// <summary>
+        /// semester control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox semester;
+        
+        /// <summary>
+        /// section control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox section;
+        
+        /// <summary>
+        /// next_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button next_1;
     }
 }

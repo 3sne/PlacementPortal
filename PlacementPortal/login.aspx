@@ -77,13 +77,13 @@
                 </div>
                 <div class="checkbox mt-3">
                     <label style="margin-bottom: 0px">
-                        <input id="_cb_remember_me" type="checkbox" value="remember-me" />
+                        <asp:CheckBox ID="_cb_remember_me" runat="server" />
                         <label for="_cb_remember_me">Remember Me</label>
                     </label>
                 </div>
                 <div class="">
                     <asp:Button ID="_btn_login" CssClass="cust__btn" Text="Login" runat="server" OnClick="_btn_login_Click" />
-                    <asp:Button ID="_btn_register" CssClass="cust__btn" Text="Register" runat="server" />
+                    <asp:Button ID="_btn_register" CssClass="cust__btn" Text="Register" runat="server" OnClick="_btn_register_Click" />
                 </div>
                 <small class="text-muted">
                     <asp:Label ID="_lbl_register_urge" runat="server" />

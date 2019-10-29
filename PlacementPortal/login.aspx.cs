@@ -51,6 +51,33 @@ namespace PlacementPortal
             _tb_username.Attributes["placeholder"] = labelForUsername;
             _tb_password.Attributes["placeholder"] = "Password";
             _lbl_register_urge.Text = labelForRegistrationUrge;
+
+            if (role == "student" && Request.Cookies.Get("pre_student") != null)
+            {
+                HttpCookie coki = Request.Cookies.Get("pre_student");
+                string sid = coki["_student_id"].ToString();
+                string pw = coki["_student_pw"].ToString();
+                string queryStudent = string.Format("SELECT COUNT(*) FROM {0} WHERE student_id=@student_id AND password=@password", GlobalStrings.tAuthStudent);
+                SqlConnection connection = new SqlConnection(GlobalStrings.connectionString);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = queryStudent;
+                cmd.Parameters.AddWithValue("@student_id", sid);
+                cmd.Parameters.AddWithValue("@password", pw);
+                connection.Open();
+                Int32 count = (Int32)cmd.ExecuteScalar();
+                connection.Close();
+                if (count != 1)
+                {
+                    return;
+                } else
+                {
+                    Student s = new Student();
+                    s.StudentId = sid;
+                    Session["active_user"] = s;
+                    Response.Redirect("studenthome.aspx");
+                }
+            }
         }
 
         protected void _btn_login_Click(object sender, EventArgs e)
@@ -99,8 +126,21 @@ namespace PlacementPortal
                 Student s = new Student();
                 s.StudentId = username;
                 Session["active_user"] = s;
+                if (_cb_remember_me.Checked == true)
+                {
+                    //cookie create. remember him
+                    HttpCookie coki = new HttpCookie("pre_student");
+                    coki["_student_id"] = _tb_username.Text;
+                    coki["_student_pw"] = _tb_password.Text;
+                    Response.Cookies.Add(coki);
+                }
                 Response.Redirect("studenthome.aspx");
             }
+        }
+
+        protected void _btn_register_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("studentregister.aspx");
         }
     }
 }

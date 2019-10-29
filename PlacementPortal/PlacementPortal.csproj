@@ -79,6 +79,8 @@
     <Content Include="studentjobs.aspx" />
     <Content Include="jobdetail.aspx" />
     <Content Include="studentaccount.aspx" />
+    <Content Include="studentregister.aspx" />
+    <Content Include="studentprofiles.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\GlobalStrings.cs" />
@@ -132,6 +134,20 @@
     </Compile>
     <Compile Include="studentaccount.aspx.designer.cs">
       <DependentUpon>studentaccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentregister.aspx.cs">
+      <DependentUpon>studentregister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentregister.aspx.designer.cs">
+      <DependentUpon>studentregister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentprofiles.aspx.cs">
+      <DependentUpon>studentprofiles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentprofiles.aspx.designer.cs">
+      <DependentUpon>studentprofiles.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
