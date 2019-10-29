@@ -1,0 +1,111 @@
+﻿@font-face {
+    font-family: "Muli";
+    src: url(../../fonts/Muli/Muli-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url(../../fonts/Nunito/Nunito-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Dancing Script";
+    src: url(../../fonts/Dancing_Script/DancingScript-Regular.ttf) format('truetype');
+}
+
+select {
+    padding: 0.4em 0.4em 0.2em 0.4em;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: central;
+    min-width: 7em;
+    transition: 0.5s;
+    font-family: "Nunito", sans-serif;
+    box-shadow: 0 0 20px #eee;
+    border: solid 1px purple;
+    border-radius: 2px;
+}
+
+    select::-ms-expand {
+        display: none;
+    }
+
+input[type=submit], input[type=button] {
+    background-image: linear-gradient(to left, #434343 0%, black 100%);
+    margin: 0.5em;
+    padding: 0.7em 1em 0.7em 1em;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: central;
+    min-width: 7em;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    letter-spacing: 0.1em;
+    box-shadow: 0 0 20px #eee;
+    border: none;
+    border-radius: 1.5em;
+}
+
+    input[type=submit]:hover, input[type=button]:hover {
+        background-position: right center;
+    }
+
+input[type=text], input[type=password] {
+    padding: 0.7em 1em 0.7em 1em;
+    border-radius: 1.5em;
+}
+
+.cust__card {
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(36, 37, 38, 0.08);
+    font-family: "Muli", sans-serif;
+    transition: box-shadow 0.25s ease;
+}
+
+    .cust__card:hover {
+        box-shadow: 5px 12px 20px rgba(36, 37, 38, 0.13);
+    }
+
+.heading__font {
+    font-family: "Nunito", sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.link__buttons {
+    background-image: linear-gradient(to left, #434343 0%, black 100%);
+    margin: 0.5em;
+    padding: 0.7em 1em 0.7em 1em;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: central;
+    min-width: 7em;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    letter-spacing: 0.1em;
+    box-shadow: 0 0 20px #eee;
+    border: none;
+    border-radius: 1.5em;
+}
+
+    .link__buttons:hover {
+        color: white;
+        background-position: right center;
+    }
+
+
+#_real_nav {
+    color: white;
+    background-image: linear-gradient(to left, #434343 0%, black 100%);
+    background-size: 160% auto;
+    /*background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);*/
+    /*background-image: linear-gradient(to left, #74ebd5 0%, #9face6 100%);*/
+    /*    background-image: linear-gradient(to left, #0ba360 0%, #3cba92 100%); */
+    box-shadow: 0 8px 6px -6px #999;
+}

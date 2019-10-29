@@ -15,6 +15,17 @@ namespace PlacementPortal
         private string labelForUsername;
         private string labelForRegistrationUrge;
 
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (Session["active_theme"] != null)
+            {
+                Page.Theme = (string)Session["active_theme"];
+            }
+            else
+            {
+                Page.Theme = "Theme1";
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //extract role. if no role found, redirect to home page
@@ -70,7 +81,8 @@ namespace PlacementPortal
                 if (count != 1)
                 {
                     return;
-                } else
+                }
+                else
                 {
                     Student s = new Student();
                     s.StudentId = sid;
@@ -121,20 +133,46 @@ namespace PlacementPortal
             { //Authentication failed.
                 _tb_password.Text = "";
 
-            } else
+            }
+            else
             { //Authenticated user; Create a Session and redirect the boyo.
-                Student s = new Student();
-                s.StudentId = username;
-                Session["active_user"] = s;
-                if (_cb_remember_me.Checked == true)
+                if (role == "student")
                 {
-                    //cookie create. remember him
-                    HttpCookie coki = new HttpCookie("pre_student");
-                    coki["_student_id"] = _tb_username.Text;
-                    coki["_student_pw"] = _tb_password.Text;
-                    Response.Cookies.Add(coki);
+                    Student s = new Student();
+                    s.StudentId = username;
+                    Session["active_user"] = s;
+                    SqlCommand c = new SqlCommand();
+                    c.Connection = connection;
+                    c.CommandText = "SELECT theme FROM student_preferences WHERE student_id=@student_id";
+                    c.Parameters.AddWithValue("@student_id", s.StudentId);
+                    connection.Open();
+                    SqlDataReader r = c.ExecuteReader();
+                    r.Read();
+                    if (r["theme"] != null)
+                    {
+                        s.Theme = r["theme"].ToString();
+                    }
+                    else
+                    {
+                        s.Theme = "Theme1";
+                    }
+                    r.Close();
+                    connection.Close();
+                    Session["active_theme"] = s.Theme;
+                    if (_cb_remember_me.Checked == true)
+                    {
+                        //cookie create. remember him
+                        HttpCookie coki = new HttpCookie("pre_student");
+                        coki["_student_id"] = _tb_username.Text;
+                        coki["_student_pw"] = _tb_password.Text;
+                        Response.Cookies.Add(coki);
+                    }
+                    Response.Redirect("studenthome.aspx");
                 }
-                Response.Redirect("studenthome.aspx");
+                else if(role == "recruiter")
+                {
+
+                }
             }
         }
 

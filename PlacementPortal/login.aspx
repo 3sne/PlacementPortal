@@ -83,7 +83,7 @@
                 </div>
                 <div class="">
                     <asp:Button ID="_btn_login" CssClass="cust__btn" Text="Login" runat="server" OnClick="_btn_login_Click" />
-                    <asp:Button ID="_btn_register" CssClass="cust__btn" Text="Register" runat="server" OnClick="_btn_register_Click" />
+                    <asp:Button ID="_btn_register" CssClass="cust__btn" CausesValidation="false" Text="Register" runat="server" OnClick="_btn_register_Click" />
                 </div>
                 <small class="text-muted">
                     <asp:Label ID="_lbl_register_urge" runat="server" />

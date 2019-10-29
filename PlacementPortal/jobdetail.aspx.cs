@@ -13,6 +13,18 @@ namespace PlacementPortal
     {
         SqlConnection connection = new SqlConnection(GlobalStrings.connectionString);
         private bool alreadyRegistered = false;
+
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (Session["active_theme"] != null)
+            {
+                Page.Theme = (string)Session["active_theme"];
+            }
+            else
+            {
+                Page.Theme = "Theme1";
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -99,7 +111,13 @@ namespace PlacementPortal
             command.CommandText = "INSERT INTO data_job_registration(student_id, job_id, resume_id) VALUES(@student_id , @job_id, @resume_id)";
             command.Parameters.AddWithValue("@student_id", activeUser.StudentId);
             command.Parameters.AddWithValue("@job_id", Request.QueryString["job_id"].ToString());
-            command.Parameters.AddWithValue("@resume_id", ddl.SelectedItem.Text);
+            if (ddl.SelectedItem == null)
+            {
+                command.Parameters.AddWithValue("@resume_id", "");
+            } else
+            {
+                command.Parameters.AddWithValue("@resume_id", ddl.SelectedItem.Text);
+            }
             connection.Open();
             Int32 count = (Int32)command.ExecuteNonQuery();
             connection.Close();

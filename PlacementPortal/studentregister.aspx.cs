@@ -15,6 +15,18 @@ namespace PlacementPortal
 
         }
 
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (Session["active_theme"] != null)
+            {
+                Page.Theme = (string)Session["active_theme"];
+            }
+            else
+            {
+                Page.Theme = "Theme1";
+            }
+        }
+
         protected void next_1_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(GlobalStrings.connectionString);
@@ -62,7 +74,16 @@ namespace PlacementPortal
             {
                 Student s = new Student();
                 s.StudentId = student_id.Text;
+                s.Theme = "Theme1";
                 Session["active_user"] = s;
+                SqlCommand c = new SqlCommand();
+                c.Connection = connection;
+                c.CommandText = "INSERT INTO student_preferences(student_id, theme) VALUES (@student_id, @theme)";
+                c.Parameters.AddWithValue("@student_id", student_id.Text);
+                c.Parameters.AddWithValue("@theme", "Theme1");
+                connection.Open();
+                int count3 = c.ExecuteNonQuery();
+                connection.Close();
                 Response.Redirect("studenthome.aspx");
             }
 

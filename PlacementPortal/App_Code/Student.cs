@@ -17,5 +17,7 @@ namespace PlacementPortal
         public string Branch { get; set; }
         public string Semester { get; set; }
         public string Section { get; set; }
+
+        public string Theme { get; set; }
     }
 }
