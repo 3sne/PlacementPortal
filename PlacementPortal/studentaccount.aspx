@@ -275,6 +275,8 @@
                             DataSourceID="_sql_additional">
 
                             <EditItemTemplate>
+                                <p class="h4 text-center mb-3">Edit Additional Info</p>
+                                <hr />
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group">
@@ -388,6 +390,8 @@
                             </EditItemTemplate>
 
                             <ItemTemplate>
+                                <p class="h4 text-center mb-3">Additional Info</p>
+                                <hr />
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-group">
@@ -515,38 +519,6 @@
                             <SelectParameters>
                                 <asp:Parameter Name="student_id" Type="String" />
                             </SelectParameters>
-                            <DeleteParameters>
-                                <asp:Parameter Name="original_student_id" Type="String" />
-                                <asp:Parameter Name="original_phone_number" Type="String" />
-                                <asp:Parameter Name="original_x_score" Type="String" />
-                                <asp:Parameter Name="original_xii_score" Type="String" />
-                                <asp:Parameter Name="original_backlog" Type="String" />
-                                <asp:Parameter Name="original_father_name" Type="String" />
-                                <asp:Parameter Name="original_citizenship" Type="String" />
-                                <asp:Parameter Name="original_father_mobile" Type="String" />
-                                <asp:Parameter Name="original_father_occupation" Type="String" />
-                                <asp:Parameter Name="original_state" Type="String" />
-                                <asp:Parameter Name="original_city" Type="String" />
-                                <asp:Parameter Name="original_address" Type="String" />
-                                <asp:Parameter Name="original_x_board" Type="String" />
-                                <asp:Parameter Name="original_xii_board" Type="String" />
-                            </DeleteParameters>
-                            <InsertParameters>
-                                <asp:Parameter Name="student_id" Type="String" />
-                                <asp:Parameter Name="phone_number" Type="String" />
-                                <asp:Parameter Name="x_score" Type="String" />
-                                <asp:Parameter Name="xii_score" Type="String" />
-                                <asp:Parameter Name="backlog" Type="String" />
-                                <asp:Parameter Name="father_name" Type="String" />
-                                <asp:Parameter Name="citizenship" Type="String" />
-                                <asp:Parameter Name="father_mobile" Type="String" />
-                                <asp:Parameter Name="father_occupation" Type="String" />
-                                <asp:Parameter Name="state" Type="String" />
-                                <asp:Parameter Name="city" Type="String" />
-                                <asp:Parameter Name="address" Type="String" />
-                                <asp:Parameter Name="x_board" Type="String" />
-                                <asp:Parameter Name="xii_board" Type="String" />
-                            </InsertParameters>
                             <UpdateParameters>
                                 <asp:Parameter Name="phone_number" Type="String" />
                                 <asp:Parameter Name="x_score" Type="String" />

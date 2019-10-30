@@ -76,6 +76,7 @@ namespace PlacementPortal
                 s.StudentId = student_id.Text;
                 s.Theme = "Theme1";
                 Session["active_user"] = s;
+                Session["active_theme"] = "Theme1";
                 SqlCommand c = new SqlCommand();
                 c.Connection = connection;
                 c.CommandText = "INSERT INTO student_preferences(student_id, theme) VALUES (@student_id, @theme)";
@@ -83,6 +84,15 @@ namespace PlacementPortal
                 c.Parameters.AddWithValue("@theme", "Theme1");
                 connection.Open();
                 int count3 = c.ExecuteNonQuery();
+                connection.Close();
+
+                SqlCommand command3 = new SqlCommand();
+                command3.Connection = connection;
+                command3.CommandText = "INSERT INTO student_info(student_id, phone_number) VALUES (@student_id, @ph)";
+                command3.Parameters.AddWithValue("@student_id", student_id.Text);
+                command3.Parameters.AddWithValue("@ph", phone_number.Text);
+                connection.Open();
+                int count4 = command3.ExecuteNonQuery();
                 connection.Close();
                 Response.Redirect("studenthome.aspx");
             }
