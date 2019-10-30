@@ -51,10 +51,7 @@
                         <div class="text-center">
                             <h3 class="card-title">Current Registrations</h3>
                         </div>
-                        <hr />
-                        <div>
-                            <ul class="list-unstyled" id="_currreg_ph" runat="server"></ul>
-                        </div>
+                        <ul class="list-unstyled list-group list-group-flush" id="_currreg_ph" runat="server"></ul>
                     </div>
                 </div>
             </div>
@@ -68,11 +65,11 @@
                             <h3 class="card-title">Announcements</h3>
                         </div>
                         <asp:SqlDataSource runat="server"
-                            ID="_sql_announcement" 
+                            ID="_sql_announcement"
                             ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\db_placement.mdf;Integrated Security=True"
                             ProviderName="System.Data.SqlClient"
                             SelectCommand="SELECT [date], [content] FROM [announcements] ORDER BY [date] DESC, [content]" />
-                        
+
                         <asp:GridView runat="server"
                             ID="_gv_announcement"
                             AutoGenerateColumns="False"
@@ -80,31 +77,24 @@
                             GridLines="None"
                             ShowHeader="false"
                             DataSourceID="_sql_announcement"
-                            CssClass="table table-responsive table-hover" >
+                            CssClass="table table-responsive table-hover">
                             <Columns>
-                                <asp:BoundField 
-                                    DataField="date" 
+                                <asp:BoundField
+                                    DataField="date"
                                     ReadOnly="true"
-                                    DataFormatString = "{0:dd/MMM/yyyy}"
+                                    DataFormatString="{0:dd/MMM/yyyy}"
                                     SortExpression="date" />
-                                <asp:BoundField 
-                                    DataField="content" 
-                                    ReadOnly="false" 
+                                <asp:BoundField
+                                    DataField="content"
+                                    ReadOnly="false"
                                     SortExpression="content" />
                             </Columns>
 
-                        </asp:GridView>                        
+                        </asp:GridView>
                     </div>
                 </div>
 
                 <!-- Summary of the boi -->
-                <div class="card mb-4 cust__card">
-                    <div class="card-body">
-                        <div class="text-center">
-                            <h3 class="card-title pricing-card-title">PH: Summary of current profile</h3>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

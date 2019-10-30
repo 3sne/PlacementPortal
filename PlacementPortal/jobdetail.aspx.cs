@@ -62,13 +62,13 @@ namespace PlacementPortal
             //populate drop down list
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = connection;
-            cmd.CommandText = "SELECT data_student_resume.resume_name as c FROM data_student_resume INNER JOIN student_account ON data_student_resume.student_id = student_account.student_id WHERE data_student_resume.student_id=@student_id";
+            cmd.CommandText = "SELECT data_student_resume.resume_name as c, data_student_resume.resume_id as rid FROM data_student_resume INNER JOIN student_account ON data_student_resume.student_id = student_account.student_id WHERE data_student_resume.student_id=@student_id";
             cmd.Parameters.AddWithValue("@student_id", activeUser.StudentId);
             connection.Open();
             SqlDataReader rdr = cmd.ExecuteReader();
             while (rdr.Read())
             {
-                ddl.Items.Add(rdr["c"].ToString());
+                ddl.Items.Add(new ListItem(rdr["c"].ToString(), rdr["rid"].ToString()));
             }
             rdr.Close();
             connection.Close();
@@ -116,7 +116,7 @@ namespace PlacementPortal
                 command.Parameters.AddWithValue("@resume_id", "");
             } else
             {
-                command.Parameters.AddWithValue("@resume_id", ddl.SelectedItem.Text);
+                command.Parameters.AddWithValue("@resume_id", ddl.SelectedValue);
             }
             connection.Open();
             Int32 count = (Int32)command.ExecuteNonQuery();

@@ -72,6 +72,7 @@
       <DependentUpon>db_placement.mdf</DependentUpon>
     </Content>
     <Content Include="App_Themes\Theme1\test.css" />
+    <Content Include="App_Themes\ThemeAzure\azure.css" />
     <Content Include="App_Themes\ThemeDark\dark.css" />
     <Content Include="App_Themes\ThemePeach\peach.css" />
     <Content Include="index.aspx" />

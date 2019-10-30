@@ -13,6 +13,7 @@
                                 <asp:ListItem Value="Theme1" Text="Purple Accent" />
                                 <asp:ListItem Value="ThemePeach" Text="Peach Accent" />
                                 <asp:ListItem Value="ThemeDark" Text="Dark Accent" />
+                                <asp:ListItem Value="ThemeAzure" Text="Azure Accent" />
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">

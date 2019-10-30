@@ -26,6 +26,10 @@ namespace PlacementPortal
         protected void Page_Load(object sender, EventArgs e)
         {
             activeUser = (Student)Session["active_user"];
+            if (!IsPostBack)
+            {
+                ddl.SelectedValue = Session["active_theme"].ToString();
+            }
         }
 
 
@@ -41,6 +45,7 @@ namespace PlacementPortal
             conn.Open();
             int count3 = c.ExecuteNonQuery();
             conn.Close();
+            Response.Redirect("studentpref.aspx");
         }
     }
 }

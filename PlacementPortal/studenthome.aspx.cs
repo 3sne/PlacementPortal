@@ -74,10 +74,12 @@ namespace PlacementPortal
             connection.Open();
             adap2.Fill(ds, "local_job_reg_info");
             connection.Close();
+            string innerH = "";
             foreach (DataRow dr in ds.Tables["local_job_reg_info"].Rows)
             {
-                _currreg_ph.InnerHtml = string.Format("<li>{0} | {1}</li>", dr["recruiter_name"], dr["position"]);
+                innerH += string.Format("<a href='jobdetail.aspx?job_id={2}'><li class='list-group-item'>{0} | {1}</li></a>", dr["recruiter_name"], dr["position"], dr["job_id"]);
             }
+            _currreg_ph.InnerHtml = innerH;
         }
     }
 }
